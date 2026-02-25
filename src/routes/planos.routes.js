@@ -4,16 +4,18 @@ const router = express.Router();
 router.get('/planos', (req, res) => {
   res.send(`[
   {
+    "id": 1,
     "titulo": "Plano basico",
-    "valor": 89.9,
+    "valor": 89.90,
     "descricao": [
       "Acesso à área de musculação",
       "Horários flexíveis"
     ]
   },
   {
+    "id": 2,
     "titulo": "Plano intermediario",
-    "valor": 109.9,
+    "valor": 109.90,
     "descricao": [
       "Acesso à área de musculação",
       "Aulas em grupo (Zumba, Pilates)",
@@ -21,8 +23,9 @@ router.get('/planos', (req, res) => {
     ]
   },
   {
+    "id": 3,
     "titulo": "Plano Avançado",
-    "valor": 129.9,
+    "valor": 129.90,
     "descricao": [
       "Acesso total e irrestrito",
       "Todas as aulas em grupo",
