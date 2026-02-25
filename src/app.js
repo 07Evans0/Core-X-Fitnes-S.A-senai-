@@ -4,6 +4,8 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2/promise');
+const planosRoutes = require('./routes/planos.routes');
+produtosRoutes = require('./routes/produtos.routes');
 
 const app = express();
 app.use(express.json());
@@ -14,6 +16,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public', 'img')));
 app.use(express.static(path.join(__dirname, 'public', 'js')));
 app.use(express.static(path.join(__dirname, 'public', 'css')));
+
+app.use('/planos', planosRoutes);
+app.use('/produtos', produtosRoutes);
 
 let db;
 
@@ -90,7 +95,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
-initializeDatabase().then(() => {
-  app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
-});
+module.exports = { app, initializeDatabase };
+
+
